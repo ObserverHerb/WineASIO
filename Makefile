@@ -30,9 +30,7 @@ wineasio_dll_RC_SRCS  =
 wineasio_dll_LDFLAGS  = -shared \
 			-m32 \
 			$(wineasio_dll_MODULE:%=%.spec) \
-			-mnocygwin \
-			-L/usr/lib32/wine \
-			-L/usr/lib32
+			-mnocygwin
 wineasio_dll_DLL_PATH =
 wineasio_dll_DLLS     = odbc32 \
 			ole32 \
