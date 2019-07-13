@@ -37,7 +37,7 @@
 #include "objbase.h"
 #include "mmsystem.h"
 #include "winreg.h"
-#include "wine/unicode.h"
+#include "windef.h"
 
 #define IEEE754_64FLOAT 1
 #undef NATIVE_INT64
