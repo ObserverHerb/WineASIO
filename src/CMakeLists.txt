@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 project(wineasio_objects C)
 
-set(CMAKE_C_FLAGS "-O2 -D__WINESRC__ -D_REENTRANT -fPIC -Wall -pipe -fno-strict-aliasing -Wdeclaration-after-statement -Wwrite-strings -Wpointer-arith")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -D__WINESRC__ -D_REENTRANT -fPIC -Wall -pipe -fno-strict-aliasing -Wdeclaration-after-statement -Wwrite-strings -Wpointer-arith")
+if(NOT WIN64)
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32")
+endif()
 
 set(WINE_INSTALL_PREFIX /usr)
 set(WINE_FLAVOR wine)

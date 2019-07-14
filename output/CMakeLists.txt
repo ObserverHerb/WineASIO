@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.13)
 project(wineasio_dll C)
 
 set(CMAKE_C_COMPILER winegcc)
-set(CMAKE_C_FLAGS "-shared ${CMAKE_SOURCE_DIR}/wineasio.dll.spec -mno-cygwin")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -shared ${CMAKE_SOURCE_DIR}/wineasio.dll.spec -mno-cygwin")
+if(NOT WIN64)
+	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -m32")
+endif()
 
 set(WINE_INSTALL_PREFIX /usr)
 set(WINE_FLAVOR wine)
