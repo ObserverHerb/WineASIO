@@ -1,0 +1,1 @@
+sed -e 's/unsigned long/ULONG/g;s/long long int/LONGLONG/g;s/long int/LONG/g;s/long/LONG/g;s/(\*bufferSwitch)/(CALLBACK *bufferSwitch)/g;s/(\*sampleRateDidChange)/(CALLBACK *sampleRateDidChange)/g;s/(\*asioMessage)/(CALLBACK *asioMessage)/g;s/(\*bufferSwitchTimeInfo)/(CALLBACK *bufferSwitchTimeInfo)/g' $1 > $2
