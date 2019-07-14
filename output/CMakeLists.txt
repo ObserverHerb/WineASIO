@@ -14,9 +14,6 @@ link_directories(${WINE_LIB_PATH}/wine)
 
 find_library(JACK_LIBRARY NAMES jack)
 find_library(UUID_LIBRARY NAMES uuid)
-find_library(ODBC32_LIBRARY NAMES odbc32.dll.so PATHS ${WINE_LIB_PATH}/wine)
-find_library(OLE32_LIBRARY NAMES ole32.dll.so PATHS ${WINE_LIB_PATH}/wine)
-find_library(WINMM_LIBRARY NAMES winmm.dll.so PATHS ${WINE_LIB_PATH}/wine)
 
 add_library(wineasio.dll SHARED)
 set_target_properties(wineasio.dll PROPERTIES PREFIX "")
