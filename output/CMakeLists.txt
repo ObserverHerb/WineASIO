@@ -31,3 +31,5 @@ pkg_check_modules(UUID REQUIRED uuid)
 add_library(wineasio.dll SHARED)
 set_target_properties(wineasio.dll PROPERTIES PREFIX "")
 target_link_libraries(wineasio.dll interim ${JACK_LIBRARIES} ${UUID_LIBRARIES} odbc32 ole32 winmm)
+
+install(TARGETS wineasio.dll DESTINATION ${WINE_LIB_PATH}/wine)
