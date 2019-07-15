@@ -2,8 +2,14 @@ cmake_minimum_required(VERSION 3.13)
 project(wineasio C)
 
 option(WIN64 "Build for 64-bit Wine instead of 32-bit" OFF)
-
+if(NOT WIN64 AND EXISTS /usr/lib32)
+	set(CMAKE_FIND_ROOT_PATH /usr/lib32/cmake)
+endif()
 set(SCRIPTS_DIR "${CMAKE_SOURCE_DIR}/scripts")
+if(NOT DEFINED WINE_INSTALL_PREFIX)
+	set(WINE_INSTALL_PREFIX /usr)
+endif()
+set(WINE_INCLUDE_PATH ${WINE_INSTALL_PREFIX}/include/wine)
 
 add_subdirectory(src)
 add_subdirectory(output)
