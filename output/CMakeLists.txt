@@ -15,9 +15,10 @@ set(WINE_LIB_PATH ${WINE_INSTALL_PREFIX}/lib/${WINE_FLAVOR})
 
 link_directories(${WINE_LIB_PATH}/wine)
 
-find_library(JACK_LIBRARY NAMES jack)
-find_library(UUID_LIBRARY NAMES uuid)
+find_package(PkgConfig)
+pkg_check_modules(JACK REQUIRED jack)
+pkg_check_modules(UUID REQUIRED uuid)
 
 add_library(wineasio.dll SHARED)
 set_target_properties(wineasio.dll PROPERTIES PREFIX "")
-target_link_libraries(wineasio.dll interim ${JACK_LIBRARY} ${UUID_LIBRARY} odbc32 ole32 winmm)
+target_link_libraries(wineasio.dll interim ${JACK_LIBRARIES} ${UUID_LIBRARIES} odbc32 ole32 winmm)
