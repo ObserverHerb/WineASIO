@@ -38,6 +38,7 @@
 #include "mmsystem.h"
 #include "winreg.h"
 #include "windef.h"
+#include "shlwapi.h"
 
 #define IEEE754_64FLOAT 1
 #undef NATIVE_INT64
@@ -1487,11 +1488,9 @@ static VOID configure_driver(IWineASIOImpl *This)
 
     /* get client name by stripping path and extension */
     GetModuleFileNameW(0, application_path, MAX_PATH);
-    application_name = strrchrW(application_path, L'.');
-    *application_name = 0;
-    application_name = strrchrW(application_path, L'\\');
-    application_name++;
-    WideCharToMultiByte(CP_ACP, WC_SEPCHARS, application_name, -1, This->jack_client_name, ASIO_MAX_NAME_LENGTH, NULL, NULL);
+    PathStripPathW(application_path);
+    PathRemoveExtensionW(application_path);
+    WideCharToMultiByte(CP_ACP, WC_SEPCHARS, application_path, -1, This->jack_client_name, ASIO_MAX_NAME_LENGTH, NULL, NULL);
 
     RegCloseKey(hkey);
 
