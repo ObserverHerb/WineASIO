@@ -1,1 +1,7 @@
 asio.h
+*.o
+*.kdev4
+*.dll.so
+.vscode/
+asiosdk/
+build/
