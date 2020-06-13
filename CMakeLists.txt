@@ -32,6 +32,7 @@ endif()
 include(ExternalProject)
 ExternalProject_Add(project_asio
 	URL https://www.steinberg.net/asiosdk
+	URL_HASH MD5=354be53a1ea2c8ab03d0aa7a613c75ab
 	PREFIX ${CMAKE_SOURCE_DIR}/asiosdk
 	CONFIGURE_COMMAND ""
 	BUILD_COMMAND ""
