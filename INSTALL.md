@@ -30,3 +30,17 @@ make install
 ```
 
 Note that `make install` may require you to use `sudo` or be `root` before running it.
+
+### Registering With Wine
+
+Before you can use WineASIO, you will need to register it in your wineprefix. On 32-bit wineprefixes, this can be done with the following.
+
+```
+regsvr32 wineasio.dll
+```
+
+If your wineprefix is 64-bit, use this instead.
+
+```
+wine64 regsvr32 wineasio.dll
+```
