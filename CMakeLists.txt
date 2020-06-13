@@ -29,12 +29,23 @@ else()
 endif()
 
 # download Steinberg SDK and use previous install command to put header in place
-include(ExternalProject)
-ExternalProject_Add(project_asio
-	URL https://www.steinberg.net/asiosdk
-	URL_HASH MD5=354be53a1ea2c8ab03d0aa7a613c75ab
-	PREFIX ${CMAKE_SOURCE_DIR}/asiosdk
-	CONFIGURE_COMMAND ""
-	BUILD_COMMAND ""
-	INSTALL_COMMAND ${COPY_ASIO_HEADER}
-)
+option(ASIO_SDK_PROVIDED "ASIO SDK has been downloaded by another means, such as a distro's package manager" OFF)
+if(ASIO_SDK_PROVIDED)
+	include(ExternalProject)
+	ExternalProject_Add(project_asio
+		PREFIX ${CMAKE_SOURCE_DIR}/asiosdk
+		CONFIGURE_COMMAND ""
+		BUILD_COMMAND ""
+		INSTALL_COMMAND ${COPY_ASIO_HEADER}
+	)
+else()
+	include(ExternalProject)
+	ExternalProject_Add(project_asio
+		URL https://www.steinberg.net/asiosdk
+		URL_HASH MD5=354be53a1ea2c8ab03d0aa7a613c75ab
+		PREFIX ${CMAKE_SOURCE_DIR}/asiosdk
+		CONFIGURE_COMMAND ""
+		BUILD_COMMAND ""
+		INSTALL_COMMAND ${COPY_ASIO_HEADER}
+	)
+endif()
