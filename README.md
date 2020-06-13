@@ -11,7 +11,7 @@ I'm am no expert with JACK or WINE, so contributions are welcome (frankly, sorel
 combination of my own efforts as well as cherry picks from various other forks on GitHub.
 
 My primary objective is to keep
-WineASIO in a functional state, so that consumers downstream can rely on it, without changing what already works too much. I'm
+WineASIO in a functional state, so that consumers downstream can rely on it, without changing too much of what already works. I'm
 not opposed to adding completely new features but they're not my priority.
 
 # Credits
